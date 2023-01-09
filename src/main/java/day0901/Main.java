@@ -4,8 +4,8 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-  //      fileReader();
-   //     fileInputStream();
+        //      fileReader();
+        //     fileInputStream();
         bufferedReader();
     }
 
@@ -16,26 +16,28 @@ public class Main {
         var bufferedWriter = new BufferedWriter(fileWriter);
 
         String line;
-        while ((line = bufferedReader.readLine()) != null){
+//        bufferedWriter.flush();
+        while ((line = bufferedReader.readLine()) != null) {
             bufferedWriter.write(line);
             System.out.println(line);
         }
-    }
-
-    private static void fileReader() throws IOException {
-        var fileReader = new FileReader("src/main/resources/input");
-        var fileWriter = new FileWriter("src/main/resources/output");
-
-        System.out.println((char) fileReader.read());
-        int i ;
-        while ((i = fileReader.read()) != -1){
-            fileWriter.write(i);
-            System.out.println((char) i);
+        bufferedWriter.close();
         }
-    }
-    private static void fileInputStream() throws IOException {
-        FileInputStream fileInputStream = new FileInputStream("src/main/resources/input");
-        FileOutputStream fileOutputStream = new FileOutputStream("src/main/resources/output");
+
+        private static void fileReader () throws IOException {
+            var fileReader = new FileReader("src/main/resources/input");
+            var fileWriter = new FileWriter("src/main/resources/output");
+
+            System.out.println((char) fileReader.read());
+            int i;
+            while ((i = fileReader.read()) != -1) {
+                fileWriter.write(i);
+                System.out.println((char) i);
+            }
+        }
+        private static void fileInputStream () throws IOException {
+            FileInputStream fileInputStream = new FileInputStream("src/main/resources/input");
+            FileOutputStream fileOutputStream = new FileOutputStream("src/main/resources/output");
 
 //        System.out.println(fileInputStream.available());
 
@@ -50,11 +52,11 @@ public class Main {
 //
 //        int i2 = fileInputStream.read();
 //        System.out.println(i2);
-        int i ;
-        while ((i = fileInputStream.read()) != -1){
-            fileOutputStream.write(i);
-            System.out.println(i);
-        }
+            int i;
+            while ((i = fileInputStream.read()) != -1) {
+                fileOutputStream.write(i);
+                System.out.println(i);
+            }
 
+        }
     }
-}
