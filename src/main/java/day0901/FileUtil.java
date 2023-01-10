@@ -1,9 +1,6 @@
 package day0901;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class FileUtil {
 
@@ -20,7 +17,10 @@ public class FileUtil {
         }
         return stringBuilder.toString();
     }
-    public void writeFile(String path, String content) {
-
+    public void writeFile(String path, String content) throws IOException {
+        var fileWriter = new FileWriter(path);
+        var bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write(content);
+        bufferedWriter.flush();
     }
 }
