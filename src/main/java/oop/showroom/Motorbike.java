@@ -9,5 +9,7 @@ public class Motorbike extends Vehicle {
         super(brand, model, colour, engine, mileage, gearboxType, isUsed);
         this.motorbikeType = motorbikeType;
         this.motorbikeDrive = motorbikeDrive;
+
+
     }
 }
